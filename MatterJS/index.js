@@ -18,8 +18,8 @@ const render = Render.create({
 	engine  : engine,
 	options : {
 		wireframes : false,
-		width,
-		height,
+		width      : width,
+		height     : height,
 	},
 });
 Render.run(render);
@@ -28,16 +28,16 @@ Runner.run(Runner.create(), engine);
 World.add(
 	world,
 	MouseConstraint.create(engine, {
-		mouse : MouseConstraint.create(render.canvas),
+		mouse : Mouse.create(render.canvas),
 	}),
 );
 
 // Walls
 const walls = [
-	Bodies.rectangle(400, 0, 800, 40, { isStatic: true }),
-	Bodies.rectangle(400, 600, 800, 40, { isStatic: true }),
-	Bodies.rectangle(0, 300, 40, 600, { isStatic: true }),
-	Bodies.rectangle(800, 300, 40, 600, { isStatic: true }),
+	Bodies.rectangle(width / 2, 0, width, 40, { isStatic: true }),
+	Bodies.rectangle(width / 2, height, width, 40, { isStatic: true }),
+	Bodies.rectangle(0, height / 2, 40, height, { isStatic: true }),
+	Bodies.rectangle(width, height / 2, 40, height, { isStatic: true }),
 ];
 World.add(world, walls);
 
